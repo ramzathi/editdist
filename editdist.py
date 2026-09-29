@@ -19,3 +19,9 @@ def distance(left: str, right: str) -> int:
             curr.append(min(insert, delete, replace))
         prev = curr
     return prev[-1]
+
+
+def closest(needle: str, options: list[str]) -> str:
+    if not options:
+        raise ValueError("没有候选")
+    return min(options, key=lambda item: (distance(needle, item), item))
