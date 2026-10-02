@@ -21,6 +21,12 @@ def distance(left: str, right: str) -> int:
     return prev[-1]
 
 
+def within(left: str, right: str, limit: int) -> bool:
+    if limit < 0:
+        raise ValueError("上限不能为负")
+    return distance(left, right) <= limit
+
+
 def closest(needle: str, options: list[str]) -> str:
     if not options:
         raise ValueError("没有候选")
