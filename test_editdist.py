@@ -1,6 +1,6 @@
 import unittest
 
-from editdist import closest, distance, within
+from editdist import closest, distance, farthest, within
 
 
 class EditdistTest(unittest.TestCase):
@@ -9,6 +9,7 @@ class EditdistTest(unittest.TestCase):
         self.assertEqual(distance("kitten", "sitting"), 3)
         self.assertEqual(distance("same", "same"), 0)
         self.assertEqual(closest("kitten", ["sitting", "kit"]), "kit")
+        self.assertEqual(farthest("kitten", ["sitting", "kit"]), "sitting")
         self.assertTrue(within("kitten", "kit", 3))
         self.assertFalse(within("kitten", "sitting", 2))
         with self.assertRaises(ValueError):
