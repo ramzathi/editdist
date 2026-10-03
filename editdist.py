@@ -27,6 +27,12 @@ def within(left: str, right: str, limit: int) -> bool:
     return distance(left, right) <= limit
 
 
+def farthest(needle: str, options: list[str]) -> str:
+    if not options:
+        raise ValueError("没有候选")
+    return max(options, key=lambda item: (distance(needle, item), item))
+
+
 def closest(needle: str, options: list[str]) -> str:
     if not options:
         raise ValueError("没有候选")
