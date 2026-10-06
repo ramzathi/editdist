@@ -33,6 +33,10 @@ def farthest(needle: str, options: list[str]) -> str:
     return max(options, key=lambda item: (distance(needle, item), item))
 
 
+def by_distance(needle: str, options: list[str]) -> list[str]:
+    return sorted(options, key=lambda item: (distance(needle, item), item))
+
+
 def closest(needle: str, options: list[str]) -> str:
     if not options:
         raise ValueError("没有候选")
