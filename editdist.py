@@ -37,6 +37,12 @@ def by_distance(needle: str, options: list[str]) -> list[str]:
     return sorted(options, key=lambda item: (distance(needle, item), item))
 
 
+def within_any(needle: str, options: list[str], limit: int) -> bool:
+    if limit < 0:
+        raise ValueError("上限不能为负")
+    return any(within(needle, item, limit) for item in options)
+
+
 def closest(needle: str, options: list[str]) -> str:
     if not options:
         raise ValueError("没有候选")
