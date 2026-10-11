@@ -43,6 +43,12 @@ def within_any(needle: str, options: list[str], limit: int) -> bool:
     return any(within(needle, item, limit) for item in options)
 
 
+def beyond(needle: str, options: list[str], limit: int) -> list[str]:
+    if limit < 0:
+        raise ValueError("上限不能为负")
+    return [item for item in options if not within(needle, item, limit)]
+
+
 def closest(needle: str, options: list[str]) -> str:
     if not options:
         raise ValueError("没有候选")
