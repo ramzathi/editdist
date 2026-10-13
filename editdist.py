@@ -49,6 +49,12 @@ def beyond(needle: str, options: list[str], limit: int) -> list[str]:
     return [item for item in options if not within(needle, item, limit)]
 
 
+def nearest_distance(needle: str, options: list[str]) -> int:
+    if not options:
+        raise ValueError("没有候选")
+    return distance(needle, closest(needle, options))
+
+
 def closest(needle: str, options: list[str]) -> str:
     if not options:
         raise ValueError("没有候选")
