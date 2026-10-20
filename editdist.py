@@ -62,6 +62,10 @@ def tied(needle: str, options: list[str]) -> list[str]:
     return [item for item in options if distance(needle, item) == limit]
 
 
+def only_closest(needle: str, options: list[str]) -> bool:
+    return len(tied(needle, options)) == 1
+
+
 def closest(needle: str, options: list[str]) -> str:
     if not options:
         raise ValueError("没有候选")
