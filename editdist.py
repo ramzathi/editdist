@@ -66,6 +66,13 @@ def only_closest(needle: str, options: list[str]) -> bool:
     return len(tied(needle, options)) == 1
 
 
+def spread_of(needle: str, options: list[str]) -> int:
+    if not options:
+        raise ValueError("没有候选")
+    dists = [distance(needle, item) for item in options]
+    return max(dists) - min(dists)
+
+
 def closest(needle: str, options: list[str]) -> str:
     if not options:
         raise ValueError("没有候选")
