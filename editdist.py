@@ -73,6 +73,10 @@ def spread_of(needle: str, options: list[str]) -> int:
     return max(dists) - min(dists)
 
 
+def nearest_count(needle: str, options: list[str]) -> int:
+    return len(tied(needle, options))
+
+
 def closest(needle: str, options: list[str]) -> str:
     if not options:
         raise ValueError("没有候选")
