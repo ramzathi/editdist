@@ -81,3 +81,6 @@ def closest(needle: str, options: list[str]) -> str:
     if not options:
         raise ValueError("没有候选")
     return min(options, key=lambda item: (distance(needle, item), item))
+
+def far_count(needle: str, options: list[str]) -> int:
+    return len(options) - nearest_count(needle, options)
