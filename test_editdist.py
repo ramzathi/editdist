@@ -1,6 +1,6 @@
 import unittest
 
-from editdist import beyond, by_distance, closest, distance, farthest, nearest_count, nearest_distance, only_closest, spread_of, tied, within, within_any
+from editdist import beyond, by_distance, closest, distance, farthest, nearest_count, nearest_distance, only_closest, spread_of, tied, within, within_any, far_count
 
 
 class EditdistTest(unittest.TestCase):
@@ -28,6 +28,8 @@ class EditdistTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             closest("a", [])
 
+
+        self.assertEqual(far_count("cat", ["cat", "dog"]), 1)
 
 if __name__ == "__main__":
     unittest.main()
