@@ -84,3 +84,6 @@ def closest(needle: str, options: list[str]) -> str:
 
 def far_count(needle: str, options: list[str]) -> int:
     return len(options) - nearest_count(needle, options)
+
+def even_spread(needle: str, options: list[str]) -> bool:
+    return bool(options) and spread_of(needle, options) == 0
